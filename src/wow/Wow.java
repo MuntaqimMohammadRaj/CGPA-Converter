@@ -240,12 +240,14 @@ public class Wow{
 
         double finalResult = Res / ncredit;
 
-        System.out.println("Your SGPA is: " + finalResult);
+        if (fres == 0 || sres == 0 || tres == 0 || fores == 0 || fires == 0) {
+            System.out.println("INCOMPLETE");
+        } else {
+            System.out.println("Your SGPA is: " + finalResult);
+            double semires = target - finalResult;
+            double next = target + semires;
 
-        double semires = target - finalResult;
-        double next = target + semires;
-
-        System.out.println("Next semi you have to gain: " + next);
-    }
+            System.out.println("Next semister you have to gain: " + next);
+        }
 
 }
