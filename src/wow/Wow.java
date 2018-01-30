@@ -1,8 +1,9 @@
 package wow;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Wow{
+public class Wow {
 
     public static void main(String[] args) {
 
@@ -19,6 +20,7 @@ public class Wow{
         //Target
         System.out.print("Enter your target SGPA: ");
         double target = sc.nextDouble();
+        System.out.println("");
 
         //First course
         System.out.print("Enter 1st course credit: ");
@@ -238,16 +240,27 @@ public class Wow{
 
         System.out.println("Result: " + Res);
 
-        double finalResult = Res / ncredit;
+        double finalResult = format(Res / ncredit);
 
         if (fres == 0 || sres == 0 || tres == 0 || fores == 0 || fires == 0) {
             System.out.println("INCOMPLETE");
         } else {
             System.out.println("Your SGPA is: " + finalResult);
             double semires = target - finalResult;
-            double next = target + semires;
+            double next = format(target + semires);
 
             System.out.println("Next semister you have to gain: " + next);
+        }
+        
+        
+       
+
+    }
+     public static double format(double n)
+        {
+            DecimalFormat d = new DecimalFormat("#.##");
+            n=Double.parseDouble(d.format(n));
+            return n;
         }
 
 }
